@@ -137,6 +137,17 @@ $header-includes$
 $endfor$
 \address{$for(return-address)$$return-address$ \\$endfor$}
 
+% blockquote
+$if(blockquote)$
+\usepackage{xcolor}
+\definecolor{greyborder}{RGB}{221,221,221}
+\definecolor{greytext}{RGB}{119,119,119}
+\usepackage{mdframed}
+\newmdenv[rightline=false,bottomline=false,topline=false,linewidth=3pt,linecolor=greyborder,skipabove=\parskip]{blockquote}
+\renewenvironment{quote}{\begin{blockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
+\item\relax\color{greytext}\ignorespaces}{\unskip\unskip\endlist\end{blockquote}}
+$endif$
+
 \begin{document}
 
 $for(include-before)$

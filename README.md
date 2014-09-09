@@ -28,6 +28,11 @@ Note that each address component should start with a hypen. The provided example
 pandoc --template=template-letter.tex example/letter.md -o letter.pdf
 ```
 
+## Extra features
+
+`-V blockquote`
+:   Nice looking blockquotes à la [bootstrap](http://getbootstrap.com/css/#type-blockquotes)
+
 [Pandoc]: http://johnmacfarlane.net/pandoc/
 [LaTeX]: http://www.latex-project.org/
 [latex-template]: https://github.com/jgm/pandoc-templates
