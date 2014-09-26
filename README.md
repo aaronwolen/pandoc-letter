@@ -31,8 +31,13 @@ pandoc --template=template-letter.tex example/letter.md -o letter.pdf
 ## Extra features
 
 `-V blockquote`
-:   Nice looking blockquotes à la [bootstrap](http://getbootstrap.com/css/#type-blockquotes)
+:   Nice looking blockquotes à la [bootstrap][]
+
+`-V date=CUSTOMDATE`
+:    Insert a custom date in place of today's date
+
 
 [Pandoc]: http://johnmacfarlane.net/pandoc/
 [LaTeX]: http://www.latex-project.org/
 [latex-template]: https://github.com/jgm/pandoc-templates
+[bootstrap]: http://getbootstrap.com/css/#type-blockquotes
