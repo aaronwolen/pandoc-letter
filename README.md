@@ -22,11 +22,13 @@ All of which can be specified in a YAML metadata block. For example:
 	 - New York, NY
 	...
 
-Note that each address component should start with a hypen. The provided example letter can be compiled with the following command:
+Note that each address component should start with a hyphen. The provided example letter can be compiled with the following command:
 
 ```
-pandoc --template=template-letter.tex example/letter.md -o letter.pdf
+pandoc --template=template-letter.tex -V blockquote example/letter.md -o example/letter.pdf
 ```
+
+You can see the PDF output [here](https://github.com/aaronwolen/pandoc-letter/blob/master/example/letter.pdf).
 
 ## Extra features
 
