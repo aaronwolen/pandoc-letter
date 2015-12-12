@@ -176,6 +176,10 @@ $if(dir)$
 \fi
 $endif$
 
+$if(signature)$
+\usepackage{graphicx,grffile}
+\signature{$if(signature-before)$\vspace*{$signature-before$}$endif$\includegraphics{$signature$}$if(author)$\\$if(signature-after)$\vspace*{$signature-after$}$endif$$for(author)$$author$$sep$\\$endfor$$endif$}
+$else$
 $if(author)$
 \signature{$for(author)$$author$$sep$\\$endfor$}
 $endif$
@@ -231,9 +235,19 @@ $endif$
 $body$
 
 $if(closing)$
-% Move signature and close to the left
-\longindentation=0pt
+$if(closing-indentation)$
+\longindentation=$closing-indentation$
+$endif$
 \closing{$closing$}
+$endif$
+$if(encl)$
+\encl{$for(encl)$$encl$$sep$\\$endfor$}
+$endif$
+$if(cc)$
+\cc{$for(cc)$$cc$$sep$\\$endfor$}
+$endif$
+$if(ps)$
+\ps{$ps$}
 $endif$
 
 \end{letter}
