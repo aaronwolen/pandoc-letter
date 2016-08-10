@@ -34,8 +34,6 @@ pandoc  --latex-engine=xelatex --template=template/template-letter.tex example.m
 open example.pdf
 ```
 
-You can see the PDF output [here](https://github.com/aaronwolen/pandoc-letter/blob/master/example/letter.pdf).
-
 ## Features
 
 The following can be set either as variables when executing `pandoc` or added to the YAML metadata.
