@@ -30,7 +30,8 @@ return-address:
 Note that each address component should start with a hyphen. The provided example letter can be compiled with the following command:
 
 ```shell
-pandoc --template=template-letter.tex example/letter.md -o example/letter.pdf
+pandoc  --latex-engine=xelatex --template=template/template-letter.tex example.md -o example.pdf
+open example.pdf
 ```
 
 You can see the PDF output [here](https://github.com/aaronwolen/pandoc-letter/blob/master/example/letter.pdf).
