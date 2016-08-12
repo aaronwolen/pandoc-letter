@@ -1,0 +1,17 @@
+language: python
+python:
+  - "3.5"
+sudo: required
+dist: trusty
+install:
+  - wget https://github.com/scottkosty/install-tl-ubuntu/raw/master/install-tl-ubuntu && chmod +x ./install-tl-ubuntu
+  - sudo ./install-tl-ubuntu
+  - export PATH="/opt/texbin:$PATH"
+  - sudo apt-get -y update
+  - sudo apt-get -y install jq python-pip zip
+  # install latest pandoc release
+  - wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb && sudo dpkg -i pandoc.deb && rm pandoc.deb
+script:
+  - pandoc --template=template-letter.tex example/letter.md -o pandoc-letter.pdf
+after_success:
+  - curl --upload-file ./pandoc-letter.pdf https://transfer.sh/pandoc-letter.pdf
