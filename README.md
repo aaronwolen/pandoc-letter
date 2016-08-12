@@ -87,3 +87,20 @@ The following can be set either as variables when executing `pandoc` or added to
 [latex-template]: https://github.com/jgm/pandoc-templates/blob/master/default.latex
 [bootstrap]: http://getbootstrap.com/css/#type-blockquotes
 [wallpaper]: https://www.ctan.org/pkg/wallpaper
+
+
+## Thanks
+
+A huge thank you to the [creator](http://aaronwolen.com/) of the original [repository](https://github.com/aaronwolen/pandoc-letter) and to all the [pandoc](http://pandoc.org/) team.
+
+## License
+
+The technical stuff is licensed under BSD 3-clause license.
+The graphical content, included but not limited to:
+
+* letterhead.pdf
+* sigature.pdf
+
+Is protected by **copyright**. You can derive it from the [original](https://github.com/aaronwolen/pandoc-letter) repository we forked from, but if you copy our company graphics we'll not be happy.
+
+Anyway, feel free to open an issue or ask us at [info@fermiumlabs.com](mailto:info@fermiumlabs.com)
