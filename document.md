@@ -1,6 +1,5 @@
 ---
 title: Example Document
-subtitle: eeee
 #The precence of one of those elements will create the footer
 display-pagecount: true
 display-website: true
