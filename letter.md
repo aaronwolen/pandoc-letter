@@ -21,13 +21,14 @@ return-address:
 - 35142 Padova PD
 - Italy
 ps: 
-- " "
+#- "Please note that ..."
+
 #light background image
 background: true 
 
 #Watermarking
 #watermark: "Confidential"
-watermark-color: ff6666  
+watermark-color: ff8888  
 
 # signature: template/signature.pdf
 
@@ -35,8 +36,9 @@ watermark-color: ff6666
 signature-before: -10ex
 signature-after: -3ex
 closing-indentation: 0pt
+
 mainfont: Roboto
-...
+---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis dolor vitae tristique eleifend. Quisque non ipsum sit amet velit malesuada consectetur. Praesent vel facilisis leo. Sed facilisis varius orci, ut aliquam lorem malesuada in. Morbi nec purus at nisi fringilla varius non ut dui. Pellentesque bibendum sapien velit. Nulla purus justo, congue eget enim a, elementum sollicitudin eros. Cras porta augue ligula, vel adipiscing odio ullamcorper eu. In tincidunt nisi sit amet tincidunt tincidunt. Maecenas elementum neque eget dolor egestas fringilla.
 

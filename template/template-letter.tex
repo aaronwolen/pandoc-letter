@@ -231,13 +231,12 @@ $endif$
 $if(background)$
 \usepackage{background}
 \backgroundsetup{%
-  scale=1.5,
+  scale=1,
   angle=0,
   opacity=.2,
   contents={\includegraphics[width=\paperwidth]{template/background.eps}},
-  nodeanchor=north west,
-  hshift=0cm,
-  vshift=0cm
+  hshift=8.8cm,
+  vshift=-\paperheight/2-0.8cm
 }
 $endif$
 
@@ -301,7 +300,6 @@ $else$
 $endif$
 $endif$
 \bibliography{$for(bibliography)$$bibliography$$sep$,$endfor$}
-
 $endif$
 $endif$
 $if(biblatex)$
