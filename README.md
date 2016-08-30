@@ -32,8 +32,8 @@ return-address:
 Note that each address component should start with a hyphen. The provided example letter can be compiled with the following command:
 
 ```shell
-pandoc  --latex-engine=xelatex --template=template/template-letter.tex example.md -o example.pdf
-open example.pdf
+./build.sh -c 
+./build.sh -c -i inputfile.md
 ```
 
 ## Features
@@ -79,8 +79,15 @@ The following can be set either as variables when executing `pandoc` or added to
 `signature`
 :   Image file for a signature.
 
+`background`
+:   Nice background picture from file [background.eps](template/background.eps)
+
+`watermark`, `watermark-color`
+:   Watermark for writings such as "Confidential" or "Draft"
+
 `signature-before`, `signature-after`
 :   Allows adjustment of vertical space surrounding signature.
+
 
 [Pandoc]: http://pandoc.org
 [LaTeX]: http://www.latex-project.org/
@@ -99,7 +106,8 @@ The technical stuff is licensed under BSD 3-clause license.
 The graphical content, included but not limited to:
 
 * letterhead.pdf
-* sigature.pdf
+* signature.pdf
+* background.eps
 
 Is protected by **copyright**. You can derive it from the [original](https://github.com/aaronwolen/pandoc-letter) repository we forked from, but if you copy our company graphics we'll not be happy.
 
