@@ -4,6 +4,8 @@
 \usepackage[nodayofweek]{datetime}
 \newdateformat{mydate}{\twodigit{\THEDAY}{ }\shortmonthname[\THEMONTH], \THEYEAR}
 
+
+
 $if(fontfamily)$
 \usepackage[$for(fontfamilyoptions)$$fontfamilyoptions$$sep$,$endfor$]{$fontfamily$}
 $else$
@@ -215,6 +217,27 @@ $if(blockquote)$
 \renewenvironment{quote}{\begin{blockquote}\list{}{\rightmargin=0em\leftmargin=0em}%
 \item\relax\color{greytext}\ignorespaces}{\unskip\unskip\endlist\end{blockquote}}
 $endif$
+
+$if(background)$
+\usepackage{background}
+\backgroundsetup{%
+  scale=1.5,
+  angle=0,
+  opacity=.2,
+  contents={\includegraphics[width=\paperwidth]{template/background.eps}},
+  nodeanchor=north west,
+  hshift=0cm,
+  vshift=0cm
+}
+$endif$
+
+$if(watermark)$
+\usepackage{draftwatermark}
+\SetWatermarkText{$watermark$}
+\SetWatermarkColor[HTML]{$watermark-color$}
+$endif$
+
+
 
 \begin{document}
 

@@ -22,6 +22,11 @@ return-address:
 ps: 
 - " "
 
+background: true #light background image
+#watermark: "Confidential"
+watermark-color: ff6666  
+
+
 # TECHNICAL STUFF
 letterhead: template/letterhead.pdf
 # signature: template/signature.pdf
