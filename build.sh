@@ -87,7 +87,7 @@ esac; done
 [ "$FILE_IN" ]  ||  die "You must provide some FILE_IN!"
 [ $# -eq 0 ]  ||  die "ERROR: Unexpected commands!"
 
-pandoc  --latex-engine=xelatex --template=template/template-letter.tex "$FILE_IN" -o "${FILE_IN%%.*}.pdf"
+pandoc  --latex-engine=xelatex --template=template/letter.tex "$FILE_IN" -o "${FILE_IN%%.*}.pdf"
 echo "${FILE_IN%%.*}.pdf built!"
 
 if [ "$COMPRESS" == true ] ; then
