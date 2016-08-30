@@ -39,6 +39,7 @@ CMD_DIR="$(cd "$(dirname "$CMD")" && pwd -P)"
 [ "$FILE_IN" ]   ||  FILE_IN="letter.md"	# assuming that you have a FILE_IN
 [ "$FILE_OUT" ]   ||  FILE_OUT=	# assuming that you have a FILE_IN
 [ "$COMPRESS" ]   ||  COMPRESS=false	# assuming that you have a FILE_IN
+[ "$OPEN" ]   ||  OPEN=false	# assuming that you have a FILE_IN
 
 
 # Basic helpers
@@ -72,6 +73,8 @@ NARGS=-1; while [ "$#" -ne "$NARGS" ]; do NARGS=$#; case $1 in
 		shift && FILE_IN="$1" && shift && vrb "#-INFO: FILE_IN=$FILE_IN"; ;;
   -c|--compress)  # Compress and postprocess pdf output
     shift && COMPRESS="true" && shift && vrb "#-INFO: COMPRESS=$COMPRESS"; ;;
+	-o|--open)  # Open file. Works only on osx
+	shift && OPEN="true" && shift && vrb "#-INFO: OPEN=$OPEN"; ;;
 	*)
 		break;
 esac; done
@@ -86,11 +89,9 @@ esac; done
 [ "$FILE_IN" ]  ||  die "You must provide some FILE_IN!"
 [ $# -eq 0 ]  ||  die "ERROR: Unexpected commands!"
 
-
-
 pandoc  --latex-engine=xelatex --template=template/template-letter.tex "$FILE_IN" -o "${FILE_IN%%.*}.pdf"
 echo "${FILE_IN%%.*}.pdf built!"
 
 if [ "$COMPRESS" = true ] ; then
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf"
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" > /dev/null && rm "${FILE_IN%%.*}.pdf" && mv "${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" 
 fi
