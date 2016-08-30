@@ -34,12 +34,12 @@ CMD="$0"
 CMD_DIR="$(cd "$(dirname "$CMD")" && pwd -P)"
 
 # Defaults and command line options
-[ "$VERBOSE" ] ||  VERBOSE=
-[ "$DEBUG" ]   ||  DEBUG=
-[ "$FILE_IN" ]   ||  FILE_IN="letter.md"	# assuming that you have a FILE_IN
+[ "$VERBOSE" ]    ||  VERBOSE=
+[ "$DEBUG" ]      ||  DEBUG=
+[ "$FILE_IN" ]    ||  FILE_IN="letter.md"	# assuming that you have a FILE_IN
 [ "$FILE_OUT" ]   ||  FILE_OUT=	# assuming that you have a FILE_IN
 [ "$COMPRESS" ]   ||  COMPRESS=false	# assuming that you have a FILE_IN
-[ "$OPEN" ]   ||  OPEN=false	# assuming that you have a FILE_IN
+[ "$OPEN" ]       ||  OPEN=false	# assuming that you have a FILE_IN
 
 
 # Basic helpers
@@ -68,13 +68,12 @@ NARGS=-1; while [ "$#" -ne "$NARGS" ]; do NARGS=$#; case $1 in
 		DEBUG=$(( DEBUG + 1 )) && VERBOSE="$DEBUG" && shift && echo "#-INFO: DEBUG=$DEBUG (implies VERBOSE=$VERBOSE)"; ;;
 	-v|--verbose)   # Enable verbose messages
 		VERBOSE=$(( VERBOSE + 1 )) && shift && echo "#-INFO: VERBOSE=$VERBOSE"; ;;
-	# PAIRS
 	-i|--input)   # Set a input file to a value (DEFAULT: letter.md)
 		shift && FILE_IN="$1" && shift && vrb "#-INFO: FILE_IN=$FILE_IN"; ;;
   -c|--compress)  # Compress and postprocess pdf output
-    shift && COMPRESS="true" && shift && vrb "#-INFO: COMPRESS=$COMPRESS"; ;;
+    shift && COMPRESS=true && shift && vrb "#-INFO: COMPRESS=$COMPRESS"; ;;
 	-o|--open)  # Open file. Works only on osx
-	shift && OPEN="true" && shift && vrb "#-INFO: OPEN=$OPEN"; ;;
+	shift && OPEN=true && shift && vrb "#-INFO: OPEN=$OPEN"; ;;
 	*)
 		break;
 esac; done
@@ -84,7 +83,6 @@ esac; done
 ###############################################################################
 
 # Validate some FILE_INs
-#TODO: You will probably want to change this but this is an example of simple params validation
 [ $# -gt 0 -a -z "$FILE_IN" ]  &&  FILE_IN="$1"  &&  shift
 [ "$FILE_IN" ]  ||  die "You must provide some FILE_IN!"
 [ $# -eq 0 ]  ||  die "ERROR: Unexpected commands!"
@@ -92,6 +90,14 @@ esac; done
 pandoc  --latex-engine=xelatex --template=template/template-letter.tex "$FILE_IN" -o "${FILE_IN%%.*}.pdf"
 echo "${FILE_IN%%.*}.pdf built!"
 
-if [ "$COMPRESS" = true ] ; then
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" > /dev/null && rm "${FILE_IN%%.*}.pdf" && mv "${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" 
+if [ "$COMPRESS" == true ] ; then
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" > /dev/null ;
+	rm "${FILE_IN%%.*}.pdf";
+	mv "${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" ;
+	echo "${FILE_IN%%.*}.pdf compressed!" ;
+fi
+
+if [ "$OPEN" == true ] ; then
+	open "${FILE_IN%%.*}.pdf";
+	echo "${FILE_IN%%.*}.pdf opened!"
 fi
