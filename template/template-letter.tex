@@ -198,9 +198,19 @@ $if(date)$
 $endif$
 
 $if(letterhead)$
-\usepackage{wallpaper}
-\ThisULCornerWallPaper{1}{$letterhead$}
+%\usepackage{wallpaper}
+%\ThisULCornerWallPaper{1}{$letterhead$}
 $endif$
+
+\usepackage{geometry}
+\usepackage{fancyhdr}
+\geometry{headheight = 0.6in}
+
+%append a nice logo and horizontal line
+\fancypagestyle{empty}    {\fancyhf{}\fancyhead[L]{\includegraphics[height=0.5in, keepaspectratio=true]{template/logo.eps}}}
+\fancypagestyle{firstpage}{\fancyhf{}\fancyhead[L]{\includegraphics[height=0.5in, keepaspectratio=true]{template/logo.eps}}}
+\fancypagestyle{plain}    {\fancyhf{}\fancyhead[R]{\includegraphics[height=0.5in, keepaspectratio=true]{template/logo.eps}}}
+
 
 $for(header-includes)$
 $header-includes$
@@ -247,38 +257,38 @@ $include-before$
 $endfor$
 $if(toc)$
 {
-$if(colorlinks)$
-\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
-$endif$
-\setcounter{tocdepth}{$toc-depth$}
-\tableofcontents
+	$if(colorlinks)$
+	\hypersetup{linkcolor=$if(toccolor)$$toccolor$$else$black$endif$}
+	$endif$
+	\setcounter{tocdepth}{$toc-depth$}
+	\tableofcontents
 }
 $endif$
 
 \begin{letter}{$for(address)$$address$$sep$\\$endfor$}
-
-$if(opening)$
-\opening{$opening$}
-$endif$
-
-$body$
-
-$if(closing)$
-$if(closing-indentation)$
-\longindentation=$closing-indentation$
-$endif$
-\closing{$closing$}
-$endif$
-$if(encl)$
-\encl{$for(encl)$$encl$$sep$\\$endfor$}
-$endif$
-$if(cc)$
-\cc{$for(cc)$$cc$$sep$\\$endfor$}
-$endif$
-$if(ps)$
-\ps{$ps$}
-$endif$
-
+	
+	$if(opening)$
+	\opening{$opening$}
+	$endif$
+	
+	$body$
+	
+	$if(closing)$
+	$if(closing-indentation)$
+	\longindentation=$closing-indentation$
+	$endif$
+	\closing{$closing$}
+	$endif$
+	$if(encl)$
+	\encl{$for(encl)$$encl$$sep$\\$endfor$}
+	$endif$
+	$if(cc)$
+	\cc{$for(cc)$$cc$$sep$\\$endfor$}
+	$endif$
+	$if(ps)$
+	\ps{$ps$}
+	$endif$
+	
 \end{letter}
 
 $if(natbib)$

@@ -9,11 +9,12 @@ closing: Best regards,
 #Automatic english date, today
 date:  \textbf{\today}
 
+#Receiving address
 address: 
 - 123 Street Rd
 - Chicago, IL
 
-
+#Your address
 return-address: 
 - "**Fermium LABS srl**"
 - Via Monselice 15a
@@ -21,27 +22,20 @@ return-address:
 - Italy
 ps: 
 - " "
+#light background image
+background: true 
 
-background: true #light background image
+#Watermarking
 #watermark: "Confidential"
 watermark-color: ff6666  
 
-
-# TECHNICAL STUFF
-letterhead: template/letterhead.pdf
 # signature: template/signature.pdf
+
+#Technical stuff
 signature-before: -10ex
 signature-after: -3ex
 closing-indentation: 0pt
 mainfont: Roboto
-
-header-includes:
-    - \usepackage{fancyhdr}
-    - \pagestyle{fancy}
-    - \headheight=3cm
-    - \fancyhead[C]{Hall Effect Handbook}
-    - \fancyfoot[C]{}
-    - \fancyfoot[R]{\thepage}
 ...
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis dolor vitae tristique eleifend. Quisque non ipsum sit amet velit malesuada consectetur. Praesent vel facilisis leo. Sed facilisis varius orci, ut aliquam lorem malesuada in. Morbi nec purus at nisi fringilla varius non ut dui. Pellentesque bibendum sapien velit. Nulla purus justo, congue eget enim a, elementum sollicitudin eros. Cras porta augue ligula, vel adipiscing odio ullamcorper eu. In tincidunt nisi sit amet tincidunt tincidunt. Maecenas elementum neque eget dolor egestas fringilla.
