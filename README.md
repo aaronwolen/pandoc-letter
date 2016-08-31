@@ -102,8 +102,8 @@ A huge thank you to the [creator](http://aaronwolen.com/) of the original [repos
 
 ## License
 
-The technical stuff is licensed under BSD 3-clause license.
-The graphical content, included but not limited to:
+The technical stuff is licensed under BSD 3-clause license. 
+The graphical content, included but not limited to: 
 
 * letterhead.pdf
 * signature.pdf
@@ -112,3 +112,8 @@ The graphical content, included but not limited to:
 Is protected by **copyright**. You can derive it from the [original](https://github.com/aaronwolen/pandoc-letter) repository we forked from, but if you copy our company graphics we'll not be happy.
 
 Anyway, feel free to open an issue or ask us at [info@fermiumlabs.com](mailto:info@fermiumlabs.com)
+
+## Todo 
+
+* Use gulp to parse every document in the local directory with a frontmatter
+* Use gulp to select the pandoc latex template from the frontmatter

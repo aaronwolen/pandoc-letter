@@ -87,17 +87,18 @@ esac; done
 [ "$FILE_IN" ]  ||  die "You must provide some FILE_IN!"
 [ $# -eq 0 ]  ||  die "ERROR: Unexpected commands!"
 
-pandoc  --latex-engine=xelatex --template=template/letter.tex "$FILE_IN" -o "${FILE_IN%%.*}.pdf"
-echo "${FILE_IN%%.*}.pdf built!"
+pandoc  --latex-engine=xelatex --template=template/letter.tex "$FILE_IN" -o "_output/${FILE_IN%%.*}.pdf";
+echo "${FILE_IN%%.*}.pdf built!";
 
 if [ "$COMPRESS" == true ] ; then
-  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" > /dev/null ;
-	rm "${FILE_IN%%.*}.pdf";
-	mv "${FILE_IN%%.*}_c.pdf" "${FILE_IN%%.*}.pdf" ;
+  gs -sDEVICE=pdfwrite -dCompatibilityLevel=1.4 -dDownsampleColorImages=true -dColorImageResolution=150 -dNOPAUSE  -dBATCH -sOutputFile="_output/${FILE_IN%%.*}_c.pdf" "_output/${FILE_IN%%.*}.pdf" > /dev/null ;
+	mkdir -p _output;
+	rm "_output/${FILE_IN%%.*}.pdf";
+	mv "_output/${FILE_IN%%.*}_c.pdf" "_output/${FILE_IN%%.*}.pdf" ;
 	echo "${FILE_IN%%.*}.pdf compressed!" ;
 fi
 
 if [ "$OPEN" == true ] ; then
-	open "${FILE_IN%%.*}.pdf";
-	echo "${FILE_IN%%.*}.pdf opened!"
+	open "_output/${FILE_IN%%.*}.pdf";
+	echo "${FILE_IN%%.*}.pdf opened!";
 fi
