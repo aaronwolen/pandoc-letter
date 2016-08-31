@@ -202,12 +202,31 @@ $for(header-includes)$
 $header-includes$
 $endfor$
 
+$if(watermark)$
+\usepackage{draftwatermark}
+\SetWatermarkText{$watermark$}
+\SetWatermarkColor[HTML]{$watermark-color$}
+$endif$
+
+$if(background)$
+\usepackage{background}
+\backgroundsetup{%
+  scale=1,
+  angle=0,
+  opacity=.2,
+  contents={\includegraphics[width=\paperwidth]{template/background.eps}},
+  hshift=8.8cm,
+  vshift=-\paperheight/2-0.8cm
+}
+$endif$
+
 \usepackage{fancyhdr}
 \usepackage{geometry}
 \pagestyle{fancy}
 \geometry{headheight = 0.6in}
 
 \fancyhead[L]{\href{http://fermiumlabs.com}{\includegraphics[height=0.5in, keepaspectratio=true]{template/logo.eps}}}
+$if(head-left)$\fancyhead[R]{$head-left$}$endif$
 
 
 $if(title)$

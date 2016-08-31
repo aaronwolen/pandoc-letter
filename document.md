@@ -1,13 +1,17 @@
 ---
-title: Example Document
+title: "Example Document"
 #The precence of one of those elements will create the footer
-display-pagecount: true
-display-website: true
+display-pagecount: false
+display-website: false
+head-left: "**Contact Information**"
 
-
-documentclass: report #suggestions: report, book, article
+documentclass: book #suggestions: report, book, article
 mainfont: Roboto
 disable-floating-figures: true
+watermark: false
+background: true
+classoption: twocolumn
+#links-as-notes: true
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin mollis dolor vitae tristique eleifend. Quisque non ipsum sit amet velit malesuada consectetur. Praesent vel facilisis leo. Sed facilisis varius orci, ut aliquam lorem malesuada in. Morbi nec purus at nisi fringilla varius non ut dui. Pellentesque bibendum sapien velit. Nulla purus justo, congue eget enim a, elementum sollicitudin eros. Cras porta augue ligula, vel adipiscing odio ullamcorper eu. In tincidunt nisi sit amet tincidunt tincidunt. Maecenas elementum neque eget dolor egestas fringilla.
