@@ -2,7 +2,7 @@
 author:
 - Davide Bortolami
 - Fermium LABS srl
-
+ 
 opening: To whom it may concern,
 closing: Best regards,
 
