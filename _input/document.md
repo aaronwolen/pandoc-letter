@@ -1,9 +1,11 @@
 ---
-title: "Example Document"
+title: 'Example Document'
 #The precence of one of those elements will create the footer
 display-pagecount: false
 display-website: false
-head-left: "**Contact Information**"
+head-left: '**Contact Information**'
+
+template: document
 
 documentclass: book #suggestions: report, book, article
 mainfont: Roboto
