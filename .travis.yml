@@ -1,6 +1,6 @@
-language: python
-python:
-  - "3.5"
+language: node_js
+node_js:
+  - "6"
 sudo: required
 dist: trusty
 install:
@@ -11,10 +11,13 @@ install:
   - sudo apt-get -y install jq python-pip zip ghostscript fonts-roboto
   # install latest pandoc release
   - wget `curl https://api.github.com/repos/jgm/pandoc/releases/latest | jq -r '.assets[] | .browser_download_url | select(endswith("deb"))'` -O pandoc.deb && sudo dpkg -i pandoc.deb && rm pandoc.deb
+  - npm install 
+  - npm install gulp -g
 script:
-  - bash ./build.sh -c
+  - gulp build
 after_success:
-  - curl --upload-file ./letter.pdf https://transfer.sh/letter.pdf
+  - zip -r build.zip _build
+  - curl --upload-file ./build.zip https://transfer.sh/build.zip
 notifications:
   slack: 
     secure: "bPPKilNUc+bazYqvfvv0tnhddPjVA/J9RslRW1EB8554K8tLYkUKgtqvRPrnsQeMP+P9x9hoEh1GvUiQgyUiBnbr9lEFH5euGAD2iMu365c299x79nLH3BCCQuxiIa4S5aQ1lyjTfCKjzYg0MSyOyFDtM295fh36f/88IOcR9dxLfvQyUehMVciGHjCqUMf7rn6fOCQoq4rhjtdMZOEB1tugR+AhSFtHLq0b/smgHPAiD0U9UN/leTVHZyVzkSiB8p/aDNE9guW0GmjAnbyykLX3OQrsPffy8T0bX26Pd/U59ZG7xCGG54KFwrzl1MBCHCm23smXKjKsOrvUP3JVSM64Bu4deOuVRGCymtyjkEQQGks5nvIpr0xqnwe+ybJv+74Li0h7ACcRxH89HPlEsnsqldAVYFpNM1cAR/ULmLd4GVchAt8w8ZNYTOyhfV5zdAa9NNMG1ToWSgDRwQSzLiky8Zhjqsezn3eOznMtdcntgs4jIBhhDI3Rq2FLiZIGMcC3y5wV7Xdg21wXmzVOG3x2a1qRouUD51hHpiCRtmUOrW0DYUhRjYYKqM/BC2eV8DGHcvQtdZaKC6XwRJp2EyxMxE78HcijnV+d4QpbJYK3/jK9lr8LyrdqbdWA28/QtU4rt5Fy4RLBuvjL5uiS8AnnA4xJ4C2skG4xkQ3fwGY="
