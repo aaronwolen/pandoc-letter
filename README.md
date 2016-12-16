@@ -48,7 +48,7 @@ The following can be set either as variables when executing `pandoc` or added to
 :   Writer of the letter; can take a list for a multi-line signature.
 
 `blockquote`
-:   Changes style of block quotations to match [bootstrap][].
+:   Changes style of block quotations to match [bootstrap][] (requires the [mdframed][] package).
 
 `cc`
 :   Recipients to be carbon-copied; can take a list for multiple recipients.
@@ -105,3 +105,4 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 [latex-template]: https://github.com/jgm/pandoc-templates/blob/master/default.latex
 [pandoc]: http://pandoc.org
 [wallpaper]: https://www.ctan.org/pkg/wallpaper
+[mdframed]: https://www.ctan.org/pkg/mdframed
