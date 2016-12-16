@@ -1,6 +1,6 @@
 ---
 author:
-- Aaron
+- Aaron Wolen
 - Your Organization
 opening: To whom it may concern,
 closing: Sincerely,
@@ -20,10 +20,14 @@ encl:
 - Enclosure 2
 ps: |
   PS Lorem ipsum dolor sit amet, *consectetur* adipiscing elit.
+fontfamily: mathpazo
+fontsize: 12pt
+geometry: margin=1in
+blockquote: true
 letterhead: example/letterhead.pdf
 signature: example/signature.pdf
-signature-before: -10ex
-signature-after: -3ex
+signature-before: -8ex
+signature-after: 0ex
 closing-indentation: 0pt
 ...
 
