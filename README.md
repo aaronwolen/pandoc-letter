@@ -12,7 +12,7 @@ This template allows you to write letters in Markdown and convert them to nice l
 * enclosures list
 * carbon-copy list
 
-All of which can be specified in a YAML metadata block. For example:
+All of which can be specified in a YAML metadata block. Additional [Pandoc/LaTex options][pandoc-latex-variables] can be configured directly in the metadata block. For example:
 
 ```yaml
 ---
@@ -26,6 +26,9 @@ return-address:
 - My Home
 - 456 Road St.
 - New York, NY
+
+# ADDITIONAL ARGUMENTS
+links-as-notes: true
 ...
 ```
 
@@ -106,3 +109,4 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 [pandoc]: http://pandoc.org
 [wallpaper]: https://www.ctan.org/pkg/wallpaper
 [mdframed]: https://www.ctan.org/pkg/mdframed
+[pandoc-latex-variables]: http://pandoc.org/MANUAL.html#variables-for-latex
