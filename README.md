@@ -3,6 +3,8 @@
 [![Build Status](https://travis-ci.org/aaronwolen/pandoc-letter.svg?branch=master)](https://travis-ci.org/aaronwolen/pandoc-letter)
 [![Package-License](http://img.shields.io/badge/license-GPL--3-brightgreen.svg?style=flat)](http://www.gnu.org/licenses/gpl-3.0.html)
 
+**Authors**: [Aaron Wolen][aaron] and [Andrew Dunning][andrew]
+
 This template allows you to write letters in Markdown and convert them to nice looking PDFs using [Pandoc][] and [LaTeX][]. It's basically just a copy of Pandoc's [default LaTeX template][latex-template], slightly modified to accept arguments used in the LaTeX letter class, including:
 
 * opening
@@ -99,3 +101,5 @@ GPL-3 for pandoc-letter and the underlying Pandoc template.
 [wallpaper]: https://www.ctan.org/pkg/wallpaper
 [mdframed]: https://www.ctan.org/pkg/mdframed
 [pandoc-latex-variables]: http://pandoc.org/MANUAL.html#variables-for-latex
+[aaron]: http://aaronwolen.com
+[andrew]: http://andrewdunning.ca
