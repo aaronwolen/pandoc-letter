@@ -5,7 +5,7 @@
 
 **Authors**: [Aaron Wolen][aaron] and [Andrew Dunning][andrew]
 
-This template allows you to write letters in Markdown and convert them to nice looking PDFs using [Pandoc][] and [LaTeX][]. It's basically just a copy of Pandoc's [default LaTeX template][latex-template], slightly modified to accept arguments used in the LaTeX letter class, including:
+This template allows you to write letters in Markdown and convert them to nice looking PDFs using [Pandoc][] and [LaTeX][]. It accepts arguments used in the LaTeX letter class, including:
 
 * opening
 * closing
@@ -92,7 +92,7 @@ The following can be set either as variables when executing `pandoc` or added to
 
 ## License
 
-GPL-3 for pandoc-letter and the underlying Pandoc template.
+GPL-3 for pandoc-letter and the underlying [Pandoc template][latex-template].
 
 [bootstrap]: http://getbootstrap.com/css/#type-blockquotes
 [latex]: http://www.latex-project.org/
