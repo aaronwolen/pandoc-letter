@@ -3,7 +3,11 @@ dist: trusty
 
 before_install:
 - sudo apt-get -qq update
-- sudo apt-get install -y --no-install-recommends texlive-base texlive-latex-extra texlive-fonts-recommended
+- sudo apt-get install -y --no-install-recommends
+  texlive-latex-base
+  texlive-latex-recommended
+  texlive-latex-extra
+  texlive-fonts-recommended
 - sudo apt-get install -y pandoc
 
 script:
