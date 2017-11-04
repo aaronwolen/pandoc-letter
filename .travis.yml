@@ -8,6 +8,7 @@ before_install:
   texlive-latex-recommended
   texlive-latex-extra
   texlive-fonts-recommended
+  latex-xcolor
 - sudo apt-get install -y pandoc
 
 script:
