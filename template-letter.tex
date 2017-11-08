@@ -242,6 +242,24 @@ $if(dir)$
 \fi
 $endif$
 
+$if(invert-address)$
+\makeatletter
+\renewcommand*{\opening}[1]{\ifx\@empty\fromaddress
+  \thispagestyle{firstpage}%
+  \else  % home address
+    \thispagestyle{empty}%
+    {\raggedright\begin{tabular}{l@{}}\ignorespaces
+      \fromaddress \\*[2\parskip]%
+      \end{tabular}\par}%
+  \fi
+  \vspace{2\parskip}%
+  {\raggedleft \toname \\ \toaddress \\*[2\parskip]%
+  \@date \par}%
+  \vspace{2\parskip}%
+  #1\par\nobreak}
+\makeatother
+$endif$
+
 \address{$for(return-address)$$return-address$$sep$\\$endfor$}
 
 $if(blockquote)$
