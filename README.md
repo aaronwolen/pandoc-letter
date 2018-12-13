@@ -89,6 +89,9 @@ The following can be set either as variables when executing `pandoc` or added to
 `signature-before`, `signature-after`
 :   Allows adjustment of vertical space surrounding signature.
 
+`signature-width`
+:   Specify width of signature image file.
+
 
 ## License
 
