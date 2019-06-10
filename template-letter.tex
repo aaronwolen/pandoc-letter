@@ -275,7 +275,7 @@ $endif$
 $endif$
 
 
-\begin{letter}{$for(address)$$address$$sep$\\$endfor$}
+\begin{letter}{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$subject$$endif$}
 \opening{$opening$}
 
 $body$
