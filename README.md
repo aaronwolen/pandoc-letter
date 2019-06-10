@@ -50,6 +50,9 @@ The following can be set either as variables when executing `pandoc` or added to
 `address`
 :   Name and address of the recipient; takes a list for a multi-line address.
 
+`subject`
+:   Subject of the letter.
+
 `author`
 :   Writer of the letter; can take a list for a multi-line signature.
 
