@@ -96,6 +96,23 @@ The following can be set either as variables when executing `pandoc` or added to
 :   Specify width of signature image file.
 
 
+### Images, Attachments
+
+To insert an image into the body of your letter:
+
+```
+![](lalune.jpg){ width=50% }
+```
+
+The curly brackets are optional.  This inserts the image into the
+location of the command, above the signature.
+
+The recommended way to attach images on a new page after the signature
+is to compile a separate pdf file by other means than pandoc-letter,
+and then attach the two pdf files with whatever utilities you are
+familiar with.
+
+
 ## License
 
 GPL-3 for pandoc-letter and the underlying [Pandoc template][latex-template].
