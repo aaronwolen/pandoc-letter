@@ -275,8 +275,13 @@ $endif$
 $endif$
 
 
-\begin{letter}{$for(address)$$address$$sep$\\$endfor$$if(subject)$\\ ~ \\$subject$$endif$}
+\begin{letter}
+{$for(address)$$address$$sep$\\$endfor$}
 \opening{$opening$}
+
+$if(subject)$
+\textbf{\\Subject: $subject$\\}
+$endif$
 
 $body$
 
