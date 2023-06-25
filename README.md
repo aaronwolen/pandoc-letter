@@ -15,6 +15,12 @@ This template allows you to write letters in Markdown and convert them to nice l
 * enclosures list
 * carbon-copy list
 
+You can also specify a different documentclass with
+
+* userdocumentclass
+
+though you will want to ensure your substitute documentclass handles things like `address` and `signature`
+
 All of which can be specified in a YAML metadata block. Additional [Pandoc/LaTex options][pandoc-latex-variables] can be configured directly in the metadata block. For example:
 
 ```yaml
